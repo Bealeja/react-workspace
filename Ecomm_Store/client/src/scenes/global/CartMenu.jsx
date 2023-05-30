@@ -41,7 +41,30 @@ const CartMenu = () => {
       top="0"
       overflow="auto"
     >
-      <Box position="fixed" right="0" bottom="0" width="max(400px, 30%)"></Box>
+      {/* MODAL */}
+      <Box
+        position="fixed"
+        right="0"
+        bottom="0"
+        width="max(400px, 30%)"
+        height="100%"
+        backgroundColor="white"
+      >
+        <Box padding="30px" overflow="auto" height="100%">
+          {/* HEADER */}
+          <Flexbox mb="15px">
+            <Typography variant="h3">SHOPPING BAG ({cart.length})</Typography>
+            <IconButton onClick={() => dispatch(setIsCartOpen({}))}>
+              <CloseIcon />
+            </IconButton>
+          </Flexbox>
+          <Box>
+            {cart.map((item) => (
+              <Box key={`${item.attributes.name}-${item.id}`}></Box>
+            ))}
+          </Box>
+        </Box>
+      </Box>
     </Box>
   );
 };
