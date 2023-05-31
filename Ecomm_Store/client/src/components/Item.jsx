@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { IconButton, Box, Typography, useTheme, Button } from "@mui/material";
 import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
 import { shades } from "../theme";
 import { addToCart } from "../state";
 import { useNavigate } from "react-router-dom";
+import { Category } from "@mui/icons-material";
 
 const Item = (item, width) => {
   const navigate = useNavigate();
@@ -49,13 +51,40 @@ const Item = (item, width) => {
           padding="0 5%"
         >
           <Box display="flex" justifyContent="space=between">
+            {/* AMOUNT */}
             <Box
               display="flex"
               alignItems="center"
               backgroundColor={shades.neutral[100]}
               borderRadius="3px"
-            ></Box>
+            >
+              <IconButton onClick={() => setCount(Math.max(count - 1, 1))}>
+                <RemoveIcon />
+              </IconButton>
+              <Typography color={shades.primary[300]}>{count}</Typography>
+              <IconButton onClick={() => setCount(count + 1)}>
+                <AddIcon />
+              </IconButton>
+            </Box>
+            {/* BUTTON */}
+            <Button
+              onClick={() => {
+                dispatch(addToCart({ item: { ...item, count } }));
+              }}
+              sx={{ backgroundColor: shades.primary[300], color: "white" }}
+            >
+              Add to Cart
+            </Button>
           </Box>
+        </Box>
+        <Box mt="3px">
+          <Typography variant="subtitle2" color={neutral.dark}>
+            {catagory
+              .replace(/([A-Z])/g, "$1")
+              .replace(/^./, (str) => str.toUpperCase())}
+          </Typography>
+          <Typography>{name}</Typography>
+          <Typography fontWeight="bold">{price}</Typography>
         </Box>
       </Box>
     </Box>
