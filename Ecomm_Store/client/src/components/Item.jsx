@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { IconButton, Box, Typography, useTheme, Button } from "@mui/material";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
-import { shades } from "../theme";
+import { shades } from "../theme.js";
 import { addToCart } from "../state";
 import { useNavigate } from "react-router-dom";
 import { Category } from "@mui/icons-material";
