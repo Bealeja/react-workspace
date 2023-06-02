@@ -22,8 +22,8 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <ScrollToTop />
         <Navbar />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="item/:itemId" element={<ItemDetails />} />
