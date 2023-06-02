@@ -55,13 +55,13 @@ const Item = (item, width) => {
             <Box
               display="flex"
               alignItems="center"
-              backgroundColor={shades.neutral[100]}
+              backgroundColor={shades.neutral.yellow[100]}
               borderRadius="3px"
             >
               <IconButton onClick={() => setCount(Math.max(count - 1, 1))}>
                 <RemoveIcon />
               </IconButton>
-              <Typography color={shades.primary[300]}>{count}</Typography>
+              <Typography color={shades.primary.black[300]}>{count}</Typography>
               <IconButton onClick={() => setCount(count + 1)}>
                 <AddIcon />
               </IconButton>
@@ -71,7 +71,10 @@ const Item = (item, width) => {
               onClick={() => {
                 dispatch(addToCart({ item: { ...item, count } }));
               }}
-              sx={{ backgroundColor: shades.primary[300], color: "white" }}
+              sx={{
+                backgroundColor: shades.primary.black[300],
+                color: "white",
+              }}
             >
               Add to Cart
             </Button>

@@ -47,15 +47,15 @@ export const shades = {
 export const theme = createTheme({
   palette: {
     primary: {
-      main: shades.primary[500],
+      main: shades.primary.black[500],
     },
     secondary: {
-      main: shades.secondary[500],
+      main: shades.secondary.red[500],
     },
     neutral: {
-      dark: shades.neutral[700],
-      main: shades.neutral[500],
-      ligh: shades.neutral[500],
+      dark: shades.neutral.yellow[700],
+      main: shades.neutral.yellow[500],
+      ligh: shades.neutral.yellow[500],
     },
   },
   typography: {

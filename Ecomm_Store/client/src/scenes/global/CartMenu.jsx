@@ -88,7 +88,7 @@ const CartMenu = () => {
                       <Box
                         display="flex"
                         alignItems="center"
-                        border={`1.5px solid ${shades.neutral[500]}`}
+                        border={`1.5px solid ${shades.neutral.yellow[500]}`}
                       >
                         <IconButton
                           onClick={() =>
@@ -125,18 +125,20 @@ const CartMenu = () => {
             </FlexBox>
             <Button
               sx={{
-                backgroundColor: shades.primary[400],
+                backgroundColor: shades.primary.black[400],
                 color: "white",
                 borderRadius: 0,
                 midWidth: "100%",
-                padding: "200px 40px",
+                padding: "20px 40px",
                 m: "20px 0",
               }}
               onClick={() => {
                 navigate("/checkout");
                 dispatch(setIsCartOpen({}));
               }}
-            ></Button>
+            >
+              Checkout
+            </Button>
           </Box>
         </Box>
       </Box>
