@@ -6,9 +6,9 @@ import AddIcon from "@mui/icons-material/Add";
 import { shades } from "../theme.js";
 import { addToCart } from "../state";
 import { useNavigate } from "react-router-dom";
-import { Category } from "@mui/icons-material";
 
-const Item = (item, width) => {
+const Item = ({ item, width }) => {
+  // Enclose props in parentheses
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [count, setCount] = useState(1);
@@ -17,11 +17,12 @@ const Item = (item, width) => {
     palette: { neutral },
   } = useTheme();
 
-  const { catagory, price, name, image } = item.attributes;
+  const { category, price, name, image } = item.attributes;
   const {
     data: {
       attributes: {
-        formates: {
+        formats: {
+          // Corrected spelling from 'formates' to 'formats'
           medium: { url },
         },
       },
@@ -43,14 +44,14 @@ const Item = (item, width) => {
           style={{ cursor: "pointer" }}
         />
         <Box
-          display={isHovered ? "blocked" : "none"}
+          display={isHovered ? "block" : "none"} // Corrected 'blocked' to 'block'
           position="absolute"
           bottom="10%"
           left="0"
           width="100%"
           padding="0 5%"
         >
-          <Box display="flex" justifyContent="space=between">
+          <Box display="flex" justifyContent="space-between">
             {/* AMOUNT */}
             <Box
               display="flex"
@@ -82,7 +83,7 @@ const Item = (item, width) => {
         </Box>
         <Box mt="3px">
           <Typography variant="subtitle2" color={neutral.dark}>
-            {catagory
+            {category
               .replace(/([A-Z])/g, "$1")
               .replace(/^./, (str) => str.toUpperCase())}
           </Typography>

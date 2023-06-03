@@ -29,13 +29,13 @@ const ShoppingList = () => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const topRatedItems = items.filter(
-    (item) => item.attributes.catagory === "topRated"
+    (item) => item.attributes.category === "topRated"
   );
   const newArrivalsItems = items.filter(
-    (item) => item.attributes.catagory === "newArrivals"
+    (item) => item.attributes.category === "newArrival"
   );
   const bestSellerItems = items.filter(
-    (item) => item.attributes.catagory === "bestSellers"
+    (item) => item.attributes.category === "bestSellers"
   );
 
   return (
@@ -62,6 +62,31 @@ const ShoppingList = () => {
         <Tab label="BEST SELLERS" value="bestSellers" />
         <Tab label="TOP RATED" value="topRated" />
       </Tabs>
+      <Box
+        margin="0 auto"
+        display="grid"
+        gridTemplateColumns="repeat(auto-fill, 300px)"
+        justifyContent="space-around"
+        rowGap="20px"
+        columnGap="1.33%"
+      >
+        {value === "all" &&
+          items.map((item) => (
+            <Item item={item} key={`${item.name}-${item.id}`} />
+          ))}
+        {value === "newArrival" &&
+          newArrivalsItems.map((item) => (
+            <Item item={item} key={`${item.name}-${item.id}`} />
+          ))}
+        {value === "bestSellers" &&
+          bestSellerItems.map((item) => (
+            <Item item={item} key={`${item.name}-${item.id}`} />
+          ))}
+        {value === "topRated" &&
+          topRatedItems.map((item) => (
+            <Item item={item} key={`${item.name}-${item.id}`} />
+          ))}
+      </Box>
     </Box>
   );
 };
