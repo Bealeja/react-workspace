@@ -35,15 +35,26 @@ const Footer = () => {
         <Typography mb="30px">Our Stores</Typography>
         <Typography mb="30px">Terms and Conditions</Typography>
         <Typography mb="30px">Privacy Policy</Typography>
-      </Box>
-      <Box>
-        <Typography variant="h4" fontWeight="bold" mb="30px">
-          Customer Care
-        </Typography>
-        <Typography mb="30px">Help Center</Typography>
-        <Typography mb="30px">Track Your Order</Typography>
-        <Typography mb="30px">Corporate & Bulk Purchasing</Typography>
-        <Typography mb="30px">Return and Refunds</Typography>
+        <Box>
+          <Typography variant="h4" fontWeight="bold" mb="30px">
+            Customer Care
+          </Typography>
+          <Typography mb="30px">Help Center</Typography>
+          <Typography mb="30px">Track Your Order</Typography>
+          <Typography mb="30px">Corporate & Bulk Purchasing</Typography>
+          <Typography mb="30px">Return and Refunds</Typography>
+        </Box>
+        <Box width="clamp(20%, 25%, 30%)">
+          <Typography variant="h4" fontWeight="bold" mb="30px">
+            Contact Us
+          </Typography>
+          <Typography mb="30px">
+            50 North Whatever Blvd, Washington, DC 10501
+          </Typography>
+          <Typography mb="30px">Email: somethingsomething@gmail.com</Typography>
+          <Typography mb="30px">(222) 333 333</Typography>
+          <Typography mb="30px">Return and Refunds</Typography>
+        </Box>
       </Box>
     </Box>
   );
