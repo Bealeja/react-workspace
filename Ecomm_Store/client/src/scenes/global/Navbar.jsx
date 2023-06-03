@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Badge, Box, IconButton } from "@mui/material";
 import {
-  PersonOutline,
   ShoppingBagOutlined,
   MenuOutlined,
   SearchOutlined,
@@ -49,12 +48,12 @@ const Navbar = () => {
           columnGap="20px"
           zindex="2"
         >
-          <iconButton sx={{ color: "black" }}>
+          <IconButton sx={{ color: "black" }}>
             <SearchOutlined />
-          </iconButton>
-          <iconButton sx={{ color: "black" }}>
+          </IconButton>
+          <IconButton sx={{ color: "black" }}>
             <PersonOutlined />
-          </iconButton>
+          </IconButton>
           <Badge
             badgeContent={cart.length}
             color="secondary"
@@ -69,16 +68,16 @@ const Navbar = () => {
               },
             }}
           >
-            <iconButton
+            <IconButton
               onClick={() => dispatch(setIsCartOpen({}))}
               sx={{ color: "black" }}
             >
               <ShoppingBagOutlined />
-            </iconButton>
+            </IconButton>
           </Badge>
-          <iconButton sx={{ color: "black" }}>
+          <IconButton sx={{ color: "black" }}>
             <MenuOutlined />
-          </iconButton>
+          </IconButton>
         </Box>
       </Box>
     </Box>
