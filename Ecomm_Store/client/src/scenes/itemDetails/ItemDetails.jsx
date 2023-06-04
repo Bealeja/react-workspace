@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { IconButton, Box, Typography, Button, Tabs, Tab } from "@mui/material";
+import {
+  IconButton,
+  Box,
+  Typography,
+  Button,
+  Tabs,
+  Tab,
+  TablePagination,
+} from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
@@ -65,9 +73,48 @@ const ItemDetails = () => {
           <Box m="65px 0 2px 0">
             <Typography variant="h3">{item?.attributes?.name}</Typography>
             <Typography>${item?.attributes?.price}</Typography>
+            <Typography>{item?.attributes?.longDescription}</Typography>
+          </Box>
+          <Box display="flex" alignItems="center" minHeight="50px">
+            <Box
+              display="flex"
+              alignItems="center"
+              border={`1.5 solid ${shades.neutral[300]}`}
+              mr="20px"
+              p="2px 5px"
+            >
+              <IconButton onClick={() => setCount(Math.max(count - 1, 1))}>
+                <RemoveIcon />
+              </IconButton>
+              <Typography sx={{ p: "0 5px" }}>{count}</Typography>
+              <IconButton onClick={() => setCount(count + 1)}>
+                <AddIcon />
+              </IconButton>
+            </Box>
+            <Button
+              sx={{
+                backgroundColor: "#222222",
+                color: "white",
+                borderRadius: 0,
+                minWidth: "150px",
+                padding: "10px 40px",
+              }}
+              onClick={() => dispatch(addToCart({ item: { ...item, count } }))}
+            >
+              ADD TO CART
+            </Button>
+          </Box>
+          <Box>
+            <Box m="20px 0 5px 0" display="flex">
+              <FavoriteBorderOutlinedIcon />
+              <Typography sx={{ ml: "5px" }}>ADD TO WISHLIST</Typography>
+            </Box>
+            <Typography>CATEGORIES: {item?.attributes?.category}</Typography>
           </Box>
         </Box>
       </Box>
+
+      {/* INFORMATION */}
     </Box>
   );
 };
