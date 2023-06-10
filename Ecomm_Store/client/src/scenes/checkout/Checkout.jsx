@@ -4,6 +4,7 @@ import { Formik } from "formik";
 import { useState } from "react";
 import * as yup from "yup";
 import { shades } from "../../theme";
+import Shipping from "./Shipping";
 
 const initialValues = {
   billingAddress: {
@@ -124,7 +125,7 @@ const Checkout = () => {
             setFieldValue,
           }) => (
             <form onSubmit={handleSubmit}>
-              {isFirst && (
+              {isFirstStep && (
                 <Shipping
                   values={values}
                   errors={errors}
