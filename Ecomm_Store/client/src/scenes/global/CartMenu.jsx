@@ -32,7 +32,7 @@ const CartMenu = () => {
   return (
     <Box
       display={isCartOpen ? "block" : "none"}
-      backgroundColor="rgba(0,0,0.4)"
+      backgroundColor="rgba(0,0,0,0.4)"
       position="fixed"
       zIndex={10}
       width="100%"
