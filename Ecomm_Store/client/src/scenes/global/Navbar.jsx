@@ -1,16 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Badge, Box, IconButton } from "@mui/material";
 import {
+  PersonOutline,
   ShoppingBagOutlined,
   MenuOutlined,
   SearchOutlined,
-  PersonOutlined,
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { shades } from "../../theme";
 import { setIsCartOpen } from "../../state";
 
-const Navbar = () => {
+function Navbar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
@@ -26,7 +26,7 @@ const Navbar = () => {
       position="fixed"
       top="0"
       left="0"
-      zIndex={1}
+      zIndex="1"
     >
       <Box
         width="80%"
@@ -38,7 +38,7 @@ const Navbar = () => {
         <Box
           onClick={() => navigate("/")}
           sx={{ "&:hover": { cursor: "pointer" } }}
-          color={shades.secondary.red[500]}
+          color={shades.secondary[500]}
         >
           ECOMMER
         </Box>
@@ -46,13 +46,13 @@ const Navbar = () => {
           display="flex"
           justifyContent="space-between"
           columnGap="20px"
-          zindex="2"
+          zIndex="2"
         >
           <IconButton sx={{ color: "black" }}>
             <SearchOutlined />
           </IconButton>
           <IconButton sx={{ color: "black" }}>
-            <PersonOutlined />
+            <PersonOutline />
           </IconButton>
           <Badge
             badgeContent={cart.length}
@@ -82,6 +82,6 @@ const Navbar = () => {
       </Box>
     </Box>
   );
-};
+}
 
 export default Navbar;

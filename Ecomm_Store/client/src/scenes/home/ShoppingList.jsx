@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Box, Typography, Tab, Tabs, useMediaQuery } from "@mui/material";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
 import Item from "../../components/Item";
+import { Typography } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useDispatch, useSelector } from "react-redux";
 import { setItems } from "../../state";
 
 const ShoppingList = () => {
   const dispatch = useDispatch();
   const [value, setValue] = useState("all");
   const items = useSelector((state) => state.cart.items);
-  const isNonMobile = useMediaQuery("(min-width:600px)");
-  console.log("items", items);
+  const breakPoint = useMediaQuery("(min-width:600px)");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -17,7 +20,7 @@ const ShoppingList = () => {
 
   async function getItems() {
     const items = await fetch(
-      "http://localhost:1337/api/items?populate=image",
+      "http://localhost:2000/api/items?populate=image",
       { method: "GET" }
     );
     const itemsJson = await items.json();
@@ -32,9 +35,9 @@ const ShoppingList = () => {
     (item) => item.attributes.category === "topRated"
   );
   const newArrivalsItems = items.filter(
-    (item) => item.attributes.category === "newArrival"
+    (item) => item.attributes.category === "newArrivals"
   );
-  const bestSellerItems = items.filter(
+  const bestSellersItems = items.filter(
     (item) => item.attributes.category === "bestSellers"
   );
 
@@ -49,16 +52,16 @@ const ShoppingList = () => {
         value={value}
         onChange={handleChange}
         centered
-        TabIndicatorProps={{ sx: { display: isNonMobile ? "block" : "none" } }}
+        TabIndicatorProps={{ sx: { display: breakPoint ? "block" : "none" } }}
         sx={{
           m: "25px",
           "& .MuiTabs-flexContainer": {
-            felxWrap: "wrap",
+            flexWrap: "wrap",
           },
         }}
       >
         <Tab label="ALL" value="all" />
-        <Tab label="NEW ARRIVAL" value="newArrival" />
+        <Tab label="NEW ARRIVALS" value="newArrivals" />
         <Tab label="BEST SELLERS" value="bestSellers" />
         <Tab label="TOP RATED" value="topRated" />
       </Tabs>
@@ -74,12 +77,12 @@ const ShoppingList = () => {
           items.map((item) => (
             <Item item={item} key={`${item.name}-${item.id}`} />
           ))}
-        {value === "newArrival" &&
+        {value === "newArrivals" &&
           newArrivalsItems.map((item) => (
             <Item item={item} key={`${item.name}-${item.id}`} />
           ))}
         {value === "bestSellers" &&
-          bestSellerItems.map((item) => (
+          bestSellersItems.map((item) => (
             <Item item={item} key={`${item.name}-${item.id}`} />
           ))}
         {value === "topRated" &&

@@ -5,7 +5,7 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { shades } from "../../theme";
 
-//imports all image from assets folder
+// imports all images from assets folder
 const importAll = (r) =>
   r.keys().reduce((acc, item) => {
     acc[item.replace("./", "")] = r(item);
@@ -18,7 +18,6 @@ export const heroTextureImports = importAll(
 
 const MainCarousel = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
-
   return (
     <Carousel
       infiniteLoop={true}
@@ -73,7 +72,7 @@ const MainCarousel = () => {
             padding="20px"
             borderRadius="1px"
             textAlign="left"
-            backgroundColor="rgb(0, 0, 0.4)"
+            backgroundColor="rgb(0, 0, 0, 0.4)"
             position="absolute"
             top="46%"
             left={isNonMobile ? "10%" : "0"}
@@ -81,11 +80,13 @@ const MainCarousel = () => {
             margin={isNonMobile ? undefined : "0 auto"}
             maxWidth={isNonMobile ? undefined : "240px"}
           >
-            <Typography color={shades.secondary.red[200]}>
-              -- NEW ITEMS
-            </Typography>
+            <Typography color={shades.secondary[200]}>-- NEW ITEMS</Typography>
             <Typography variant="h1">Summer Sale</Typography>
-            <Typography fontWeight="bold" color={shades.secondary.red[300]}>
+            <Typography
+              fontWeight="bold"
+              color={shades.secondary[300]}
+              sx={{ textDecoration: "underline" }}
+            >
               Discover More
             </Typography>
           </Box>

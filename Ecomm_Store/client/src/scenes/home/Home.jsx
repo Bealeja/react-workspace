@@ -1,8 +1,8 @@
-import MainCarousel from "./MainCarousel";
 import ShoppingList from "./ShoppingList";
 import Subscribe from "./Subscribe";
+import MainCarousel from "./MainCarousel";
 
-const Home = () => {
+function Home() {
   return (
     <div className="home">
       <MainCarousel />
@@ -10,6 +10,6 @@ const Home = () => {
       <Subscribe />
     </div>
   );
-};
+}
 
 export default Home;

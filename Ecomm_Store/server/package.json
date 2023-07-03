@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "strapi-ecommerce",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -9,21 +9,21 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.10.6",
-    "@strapi/plugin-users-permissions": "4.10.6",
-    "@strapi/plugin-i18n": "4.10.6",
-    "better-sqlite3": "8.0.1"
+    "@strapi/plugin-i18n": "4.3.8",
+    "@strapi/plugin-users-permissions": "4.3.8",
+    "@strapi/strapi": "4.3.8",
+    "better-sqlite3": "7.4.6",
+    "stripe": "^10.8.0"
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "3a375f43-3f44-434c-bb91-ed5c2b3f3b7f"
+    "uuid": "e4a2f37f-046f-472f-bff8-c63d7aa6e85c"
   },
   "engines": {
-    "node": ">=14.19.1 <=18.x.x",
+    "node": ">=14.19.1 <=16.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT"

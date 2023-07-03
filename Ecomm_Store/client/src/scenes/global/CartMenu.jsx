@@ -32,7 +32,7 @@ const CartMenu = () => {
   return (
     <Box
       display={isCartOpen ? "block" : "none"}
-      backgroundColor="rgba(0,0,0,0.4)"
+      backgroundColor="rgba(0, 0, 0, 0.4)"
       position="fixed"
       zIndex={10}
       width="100%"
@@ -41,7 +41,6 @@ const CartMenu = () => {
       top="0"
       overflow="auto"
     >
-      {/* MODAL */}
       <Box
         position="fixed"
         right="0"
@@ -58,6 +57,8 @@ const CartMenu = () => {
               <CloseIcon />
             </IconButton>
           </FlexBox>
+
+          {/* CART LIST */}
           <Box>
             {cart.map((item) => (
               <Box key={`${item.attributes.name}-${item.id}`}>
@@ -67,7 +68,7 @@ const CartMenu = () => {
                       alt={item?.name}
                       width="123px"
                       height="164px"
-                      src={`http//localhost:1337${item?.attributes?.image?.data?.attributes?.fromats?.medium?.url}`}
+                      src={`http://localhost:2000${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
                     />
                   </Box>
                   <Box flex="1 1 60%">
@@ -88,7 +89,7 @@ const CartMenu = () => {
                       <Box
                         display="flex"
                         alignItems="center"
-                        border={`1.5px solid ${shades.neutral.yellow[500]}`}
+                        border={`1.5px solid ${shades.neutral[500]}`}
                       >
                         <IconButton
                           onClick={() =>
@@ -106,7 +107,6 @@ const CartMenu = () => {
                           <AddIcon />
                         </IconButton>
                       </Box>
-                      {/* PRICE */}
                       <Typography fontWeight="bold">
                         ${item.attributes.price}
                       </Typography>
@@ -117,6 +117,7 @@ const CartMenu = () => {
               </Box>
             ))}
           </Box>
+
           {/* ACTIONS */}
           <Box m="20px 0">
             <FlexBox m="20px 0">
@@ -125,10 +126,10 @@ const CartMenu = () => {
             </FlexBox>
             <Button
               sx={{
-                backgroundColor: shades.primary.black[400],
+                backgroundColor: shades.primary[400],
                 color: "white",
                 borderRadius: 0,
-                midWidth: "100%",
+                minWidth: "100%",
                 padding: "20px 40px",
                 m: "20px 0",
               }}
@@ -137,7 +138,7 @@ const CartMenu = () => {
                 dispatch(setIsCartOpen({}));
               }}
             >
-              Checkout
+              CHECKOUT
             </Button>
           </Box>
         </Box>
